@@ -1,0 +1,16 @@
+InputFile       /hdfs/store/user/ssilvado/LLG-AnalysisNTuple/v6/LLGDV_Analysis_T_tW_PU20bx25_v6.root
+InputTree       RecoData
+OutputFile      T_tW-SingleTop.root
+JET_PT_CUT_SV   30
+JET_PT_CUT_PV   75
+JET_ETA_CUT     2.4
+MUON_PT_CUT     15
+ELECTRON_PT_CUT 15
+MET_CUT         20
+N_JET_CUT       2
+N_BJET_CUT      1
+PROC_XSEC       35.6
+PROC_NTOT       9861000
+TARGET_LUMI     1000.
+ApplyEventWeights 1
+Selection       SingleTop

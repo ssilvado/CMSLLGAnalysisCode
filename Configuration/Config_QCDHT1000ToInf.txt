@@ -1,0 +1,16 @@
+InputFile       /hdfs/store/user/ssilvado/LLG-AnalysisNTuple/v6/LLGDV_Analysis_QCDHT1000ToInf_PU20bx25_v6.root
+InputTree       RecoData
+OutputFile      QCD1000ToInf.root
+JET_PT_CUT_SV   30
+JET_PT_CUT_PV   75
+JET_ETA_CUT     2.4
+MUON_PT_CUT     15
+ELECTRON_PT_CUT 15
+MET_CUT         210
+N_JET_CUT       2
+N_BJET_CUT      2
+PROC_XSEC       769.7
+PROC_NTOT       333733
+TARGET_LUMI     1000.
+ApplyEventWeights 1
+Selection       TTJetsCR
