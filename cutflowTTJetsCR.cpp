@@ -89,40 +89,13 @@ void LLGAnalysis::TTJetsCRSelection() {
         
         if( !hasMuon && !hasElectron ) return;
         _cutFlow.at("2_AtLeastOneLepton") += 1;
-        
-        //bool hasBjet = false;
-        int nBjets_CSVv2IVFL = 0;
-        int nBjets_CSVv2IVFM = 0;
-        int nBjets_CSVv2IVFT = 0;
-        int nBjets_TCHPT = 0;
-        int nBjets_JPL = 0;
-        int nBjets_JPM = 0;
-        int nBjets_JPT = 0;
-                
+
         int nJets = 0;
 
-       for( unsigned int iJet = 0; iJet < recoJet_pt->size(); ++iJet ) {
-            if( recoJet_pt->at(iJet) > JET_PT_CUT_SV && fabs(recoJet_eta->at(iJet)) < JET_ETA_CUT ){
-            	nJets += 1;
-            
-            	for( unsigned int iiJet = 0; iiJet < recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->size(); ++iiJet ){
-            		if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.423) nBjets_CSVv2IVFL += 1;
-                    if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.814) nBjets_CSVv2IVFM += 1;
-                    if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.941) nBjets_CSVv2IVFT += 1;
-                 }
-                 for( unsigned int iiJet = 0; iiJet < recoJet_btag_jetProbabilityBJetTags->size(); ++iiJet ){
-                    if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.275) nBjets_JPL += 1;
-                    if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.545) nBjets_JPM += 1;
-                    if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.790) nBjets_JPT += 1;
-                 }
-                 for( unsigned int iiJet = 0; iiJet < recoJet_btag_trackCountingHighPurBJetTags->size(); ++iiJet ){
-                    if ( recoJet_btag_trackCountingHighPurBJetTags->at(iiJet) > 3.41) nBjets_TCHPT += 1;
-                 }
-              }
+        for( unsigned int iJet = 0; iJet < recoJet_pt->size(); ++iJet ) {
+            if( recoJet_pt->at(iJet) > JET_PT_CUT_SV && fabs(recoJet_eta->at(iJet)) < JET_ETA_CUT ) nJets += 1;
         }
 
-
-        //int nJets = recoJet_pt->size();
         _histograms1D.at("nJet").Fill(nJets, evtWeight );
 
         if ( nJets >= N_JET_CUT ) { 
@@ -132,6 +105,28 @@ void LLGAnalysis::TTJetsCRSelection() {
 
         	if( met > MET_CUT ) { 
         			_cutFlow.at("4_MET") += 1;
+        			
+        			int nBjets_CSVv2IVFL = 0;
+        			int nBjets_CSVv2IVFM = 0;
+        			int nBjets_CSVv2IVFT = 0;
+        			int nBjets_TCHPT = 0;
+        			int nBjets_JPL = 0;
+        			int nBjets_JPM = 0;
+        			int nBjets_JPT = 0;
+            
+        			for( unsigned int iiJet = 0; iiJet < recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->size(); ++iiJet ){
+        				if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.423 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_CSVv2IVFL += 1;
+        				if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.814 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_CSVv2IVFM += 1;
+        				if ( recoJet_btag_combinedInclusiveSecondaryVertexV2BJetTags->at(iiJet) > 0.941 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_CSVv2IVFT += 1;
+        			}
+        			for( unsigned int iiJet = 0; iiJet < recoJet_btag_jetProbabilityBJetTags->size(); ++iiJet ){
+        				if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.275 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_JPL += 1;
+        				if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.545 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_JPM += 1;
+        				if ( recoJet_btag_jetProbabilityBJetTags->at(iiJet) > 0.790 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_JPT += 1;
+        			}
+        			for( unsigned int iiJet = 0; iiJet < recoJet_btag_trackCountingHighPurBJetTags->size(); ++iiJet ){
+        				if ( recoJet_btag_trackCountingHighPurBJetTags->at(iiJet) > 3.41 && recoJet_pt->at(iiJet) > JET_PT_CUT_SV) nBjets_TCHPT += 1;
+        			}
 
         			_histograms1D.at("nBJet_CSVv2IVFL").Fill(nBjets_CSVv2IVFL, evtWeight );
         			_histograms1D.at("nBJet_CSVv2IVFM").Fill(nBjets_CSVv2IVFM, evtWeight );
@@ -146,38 +141,38 @@ void LLGAnalysis::TTJetsCRSelection() {
         				_histograms1D.at("NBJets_CSVv2IVFL_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_CSVv2IVFL_nJets").Fill(nJets, evtWeight );
         			}
-                    if( nBjets_CSVv2IVFM >= N_BJET_CUT ){ 
+        			if( nBjets_CSVv2IVFM >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_CSVv2IVFM") += 1; 
                     	_histograms1D.at("NBJets_CSVv2IVFM_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_CSVv2IVFM_nJets").Fill(nJets, evtWeight );
-                    }
-                    if( nBjets_CSVv2IVFT >= N_BJET_CUT ){ 
+        			}
+        			if( nBjets_CSVv2IVFT >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_CSVv2IVFT") += 1; 
                     	_histograms1D.at("NBJets_CSVv2IVFT_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_CSVv2IVFT_nJets").Fill(nJets, evtWeight );
-                    }
-                    if( nBjets_JPT >= N_BJET_CUT ){ 
+        			}
+        			if( nBjets_JPT >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_JPT") += 1; 
                     	_histograms1D.at("NBJets_JPT_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_JPT_nJets").Fill(nJets, evtWeight );
-                    }
-                    if( nBjets_JPM >= N_BJET_CUT ){ 
+        			}
+        			if( nBjets_JPM >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_JPM") += 1; 
                     	_histograms1D.at("NBJets_JPM_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_JPM_nJets").Fill(nJets, evtWeight );
-                    }
-                    if( nBjets_JPL >= N_BJET_CUT ){ 
+        			}
+        			if( nBjets_JPL >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_JPL") += 1; 
                     	_histograms1D.at("NBJets_JPL_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_JPL_nJets").Fill(nJets, evtWeight );
-                    }
-                    if( nBjets_TCHPT >= N_BJET_CUT ){ 
+        			}
+        			if( nBjets_TCHPT >= N_BJET_CUT ){ 
                     	_cutFlow.at("5_NBJets_TCHPT") += 1; 
                     	_histograms1D.at("NBJets_TCHPT_met").Fill(met, evtWeight );
         				_histograms1D.at("NBJets_TCHPT_nJets").Fill(nJets, evtWeight );
-                    }   
+        			}   
                       
-            }
+            	}
         }    
         
         
