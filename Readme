@@ -1,5 +1,5 @@
 1) First you need to compile the code:
 $ make
 
-2) Run the code:
-$ ./RunAnalysis Configuration/Config_TTJets.txt >& TTJets.txt &
+2) Execute
+$ ./RunAll.sh 

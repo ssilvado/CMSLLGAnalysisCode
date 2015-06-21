@@ -9,7 +9,7 @@ ELECTRON_PT_CUT 15
 MET_CUT         210
 N_JET_CUT       2
 N_BJET_CUT      2
-PROC_XSEC       2.232
+PROC_XSEC       44.07
 PROC_NTOT       500000
 TARGET_LUMI     1000.
 ApplyEventWeights 1

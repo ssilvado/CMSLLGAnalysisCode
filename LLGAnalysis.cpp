@@ -256,7 +256,7 @@ void LLGAnalysis::RunEventLoop( int nEntriesMax ) {
     
     if( SELECTION == "SignalRegion" ) SetupSignalRegion();
     else if( SELECTION == "TTJetsCR" ) SetupTTJetsCR();
-    else if( SELECTION == "SingleTopCR" ) SetupSingleTopCR();
+    //else if( SELECTION == "SingleTopCR" ) SetupSingleTopCR();
     // SETUP YOUR SELECTION HERE
    
        
@@ -277,7 +277,7 @@ void LLGAnalysis::RunEventLoop( int nEntriesMax ) {
 
         if( SELECTION == "SignalRegion" ) SignalRegionSelection();
         else if( SELECTION == "TTJetsCR" ) TTJetsCRSelection();
-        else if( SELECTION == "SingleTopCR" ) SingleTopCRSelection();
+        //else if( SELECTION == "SingleTopCR" ) SingleTopCRSelection();
         // CALL YOUR SELECTION HERE
 
     }

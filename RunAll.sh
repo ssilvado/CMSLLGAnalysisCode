@@ -1,0 +1,27 @@
+#!/bin/bash
+./RunAnalysis Configuration/Config_TTJets.txt >& ttjets.txt &
+./RunAnalysis Configuration/Config_TTWJets.txt >& ttwjets.txt &
+./RunAnalysis Configuration/Config_TTZJets.txt >& ttzjets.txt &
+./RunAnalysis Configuration/Config_TTbarH.txt >& ttbarh.txt &
+./RunAnalysis Configuration/Config_TToLeptons_s.txt >& ttol_s.txt &
+./RunAnalysis Configuration/Config_TToLeptons_t.txt >& ttol_t.txt &
+./RunAnalysis Configuration/Config_TBarToLeptons_s.txt >& tbartol_s.txt &
+./RunAnalysis Configuration/Config_TBarToLeptons_t.txt >& tbartol_t.txt &
+./RunAnalysis Configuration/Config_T_tW.txt >& t_tw.txt &
+./RunAnalysis Configuration/Config_Tbar_tW.txt >& tbar_tw.txt &
+./RunAnalysis Configuration/Config_WZ.txt >& wz.txt &
+./RunAnalysis Configuration/Config_ZZTo4LL.txt >& zz.txt &
+./RunAnalysis Configuration/Config-DYJetsToLL.txt >& dy.txt &
+./RunAnalysis Configuration/Config-WJets.txt >& wjets.txt &
+./RunAnalysis Configuration/Config-ZJetsHT100To200.txt >& zjets100to200.txt &
+./RunAnalysis Configuration/Config-ZJetsHT200To400.txt >& zjets200to400.txt &
+./RunAnalysis Configuration/Config-ZJetsHT400To600.txt >& zjets400to600.txt &
+./RunAnalysis Configuration/Config-ZJetsHT600ToInf.txt >& zjets600toInf.txt &
+./RunAnalysis Configuration/Config_QCDHT100To250.txt >& qcd100to250.txt &
+./RunAnalysis Configuration/Config_QCDHT250To500.txt >& qcd250to500.txt &
+./RunAnalysis Configuration/Config_QCDHT500To1000.txt >& qcd500to1000.txt &
+./RunAnalysis Configuration/Config_QCDHT1000ToInf.txt >& qcd1000toInf.txt &
+./RunAnalysis Configuration/Config_GJetsHT100To200.txt >& gjets100to200.txt &
+./RunAnalysis Configuration/Config_GJetsHT200To400.txt >& gjets200to400.txt &
+./RunAnalysis Configuration/Config_GJetsHT400To600.txt >& gjets400to600.txt &
+./RunAnalysis Configuration/Config_GJetsHT600ToInf.txt >& gjets600toInf.txt &

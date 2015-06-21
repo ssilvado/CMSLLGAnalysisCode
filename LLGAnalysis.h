@@ -46,8 +46,8 @@ class LLGAnalysis {
         void SignalRegionSelection();
         void SetupTTJetsCR();
         void TTJetsCRSelection();
-        void SetupSingleTopCR();
-        void SingleTopCRSelection();
+        //void SetupSingleTopCR();
+        //void SingleTopCRSelection();
         // INSERT YOUR SELECTION HERE
 
 

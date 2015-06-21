@@ -13,4 +13,4 @@ PROC_XSEC       831.76
 PROC_NTOT       25446993
 TARGET_LUMI     1000.
 ApplyEventWeights 1
-Selection       TTJetsCR
+Selection       TTJets2CR
